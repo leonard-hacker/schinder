@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+ <!-- did you try to become admin? keep trying -->
+ <!-- or hunt for some of the eastereggs -->
+ <!-- whom can you never be matched with? -->
+ <!-- what did that person say to the admin?-->
+
+{% block head %}
+    <title>Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+    <style>
+        body{
+            background-image: none;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+    <div class="text-white verticalAlign" >
+        <img src="../static/cryingCat.jpg " class="verticalAlign">
+        <p style="font-size: xxx-large">Dont give up</p>
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

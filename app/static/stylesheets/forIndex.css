@@ -1,0 +1,219 @@
+
+*{
+    font-family: 'Roboto', "Comic Sans MS";
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: auto;
+}
+
+body{
+    background: linear-gradient(to right top, #7fffd4, #002147);
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.iconSmall{
+    height: 30px;
+    width: 22px;
+}
+.iconBig{
+    height:60px;
+    width: 44px;
+}
+.center{
+    font-family: 'Roboto', "Comic Sans MS";
+    padding-top: 15px;
+    text-align: center;
+    display: block;
+    margin:auto;
+    width: auto;
+
+}
+.navbar-inverse{
+    border-color: transparent;
+    background-color: transparent;
+}
+.text-white{
+    font-family: 'Roboto', "Comic Sans MS";
+    color: white;
+}
+.text-black{
+    font-family: 'Roboto', "Comic Sans MS";
+    color:black;
+}
+
+.navbar-inverse {
+    padding-top: 10px;
+    padding-right: 20px;
+    height: 70px;
+}
+.schinder{
+    font-weight: bold;
+    font-size: x-large;
+}
+
+h1{
+    padding-bottom: 15px;
+    display: flex;
+    font-size: xxx-large;
+    font-weight: bold;
+    justify-content: center;
+}
+.down {
+    padding-top: 13px;
+    padding-right: 25px;
+    font-size: larger;
+
+}
+a{
+    color: white;
+    text-underline: none;
+    text-decoration: none;
+}
+a:hover{
+    color: grey;
+    text-decoration: none;
+    text-underline: none;
+}
+
+
+input{
+    margin-bottom: 15px;
+}
+.submitbutton{
+    text-align: right;
+}
+
+.anmelden{
+    background: white;
+    color: red;
+    border: white;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-left: 25px;
+}
+.anmelden:hover{
+    background: url("../FarbverlaufPositiv.png");
+    color: white;
+    border: transparent;
+}
+
+.registrieren{
+    background-image: linear-gradient(-60deg,#FA3B3B, #E32BA1);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border: none;
+    border-radius: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+.registrieren:hover{
+    background-image: linear-gradient(60deg,#FA3B3B, #E32BA1);
+    color: white;
+    border: transparent;
+}
+
+.allesonstigenButtons{
+    background-image: linear-gradient(-60deg,#FA3B3B, #E32BA1);
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    border: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.allesonstigenButtons:hover{
+    background-image: linear-gradient(60deg,#FA3B3B, #E32BA1);
+    color: white;
+    border: transparent;
+}
+
+.matches{
+    padding-top: 15px;
+}
+td{
+    padding: 15px;
+}
+.chat{
+    border-radius: 10px;
+    border: none;
+    background-image: url("../FarbverlaufPositiv.png");
+}
+
+.chat:hover{
+    background-image: url("../FarbverlaufNegativ.png");
+}
+
+.user{
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+}
+
+.moveright{
+    margin-left: 45px;
+}
+
+.yesno{
+    display: flex;
+
+}
+.buttonYes{
+    background-image: url("../JopePositiv.png");
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+    line-height: 40px; /* adjust line height to align vertically*/
+    padding:0;
+    border-radius: 50%;
+    margin-right: 400px;
+}
+
+.buttonYes:hover{
+    background-image: url("../JopeNegativ.png");
+}
+
+.buttonNo{
+    background-image: url("../NopePositiv.png");
+    background-size: 100%;
+    width: 100px;
+    height: 100px;
+    line-height: 40px; /* adjust line height to align vertically*/
+    border-radius: 50%;
+    margin-left: 400px;
+}
+.buttonNo:hover{
+    background-image: url("../NopeNegativ.png");
+}
+
+.textAreaSize{
+    margin-top: 15px;
+    height: 100px;
+    width:  248px;
+    margin-bottom: 15px;
+}
+
+textbox{
+    width:300px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+.container{
+    width: 1860px;
+}

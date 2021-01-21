@@ -1,0 +1,75 @@
+{% extends "bootstrap/base.html" %}
+
+
+{% block title %}Zurücksetzten{% endblock %}
+
+<!-- nice you are looking at HTML. one day you will be a good hacker -->
+<!--now did you find one of the eastereggs yet? no, not just comments. something better -->
+
+{% block navbar %}
+    {% include "snipets/navbarIndex.html" %}
+{% endblock %}
+
+{% block head %}
+    <title>Schinder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../static/logowhite.png">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+    {% include "snipets/flash.html" %}
+
+    <style>
+        body{
+            background-image: url("../static/nolove.png");
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
+    </style>
+
+    <div class="container text-white center">
+        <div class="box1">
+            <h1>Passwort zurücksetzten</h1>
+        </div>
+        <div class="box2" style="font-size: 20px">
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.username.label }}<br>
+                    {{ form.username(size=50, class_="text-black") }}<br>
+                    {% for error in form.username.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.safety_question.label }}<br>
+                    {{ form.safety_question(class_="text-black") }}<br>
+                    {% for error in form.safety_question.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.answer.label }}<br>
+                    {{ form.answer(size=50,  class_="text-black") }}<br>
+                    {% for error in form.answer.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+
+                <div class="submitbutton" style="display: block; text-align: center">
+                    <p>{{ form.submit(class_="btn btn-primary btn-lg anmelden") }}</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

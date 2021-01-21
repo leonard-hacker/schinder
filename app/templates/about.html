@@ -1,0 +1,83 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+<!--neo follow the white rabbit -->
+
+{% block head %}
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    <div style="font-size: 18px; padding-right: 30px; padding-left: 30px;text-align: justify" class="text-white">
+
+            <div style="text-align: center">
+                Wir bei Schinder haben es uns zum Ziel gemacht, den Alltag an der Hochschule Mannheim zu versüßen.
+            </div>
+            <br>
+            Doch wie lässt sich der Stresspegel der Studenten und Dozenten nachhaltig senken?<br>
+
+            Wir glauben mit Hass, genauer gesagt mit einem Druckventil für alle angestauten negativen Emotionen.
+            Wir kennen den Alltagsstress nur zu gut und wissen, dass es manchmal einfach gut tut dem Redebedarf freien Lauf zu lassen.
+            Deshalb haben wir uns dazu entschlossen euch eine Plattform zu geben, auf der ihr mit eurem Hass nie allein seid!
+            Dank neuster Technologie und unbesiegten Sicherheitsvorkehrungen braucht ihr euch um eure persönlichen Daten keine Sorgen mehr zu machen.
+
+            Dafür stehen wir mit unserem Namen.
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+
+
+                    <img class="col-lg-6 text-left" src="../static/manWithCat.jpg" alt="Jim with his loved cat named cat" style="width:600px;height:300px; margin-left: 200px; margin-top:20px"/>
+                </div>
+                <div class="text-white col-lg-6" style=" text-align: justify; margin-top: 40px">
+                    Ein Mann, eine Vision. Für Jim Strahlemann ist Schinder mehr als eine Plattform,
+                    es ist eine Lebenseinstellung. Man kann nur vermuten welch tragische Ereignisse einen Menschen zu derart viel Wut befähigen.
+                    Jim brauchte unbedingt eine Lösung, also entwarf er kurzerhand Schinder.
+                    Nach dem rasanten Erfolg Schinders zog er sich aus dem Entwicklungsgeschehen zurück und überließ Kalle Rosentreter die Einstellungsgespräche,
+                    sowie jegliche weitere Interaktion mit Menschen, da Jim Menschen schlichtweg verabscheut und sich lieber seinen Katzen widmet.
+                    Jim Strahlemann ist seit eh und je eine Ikone der ungezügelten Wut und sein Gründergeist prägte maßgeblich die Firmenmentalität.
+                    Wenn man genau hinhört, bemerkt man in den Hallen von Schinder noch heute das Weinen der zahlreichen Praktikanten, die durch Jims Schikane die Nerven verloren.
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="text-white col-lg-6" style="text-align: justify; margin-top: 70px">
+                    Kalle Rosentreter ist das zweite Genie hinter Schinder.
+                    Durch seine ausgefallenen Ideen und kreativen Ansätze erfand er zahlreiche Beleidigungen, die Schinder bis heute bereichern.
+                    Viele Bugs konnten überhaupt erst gefunden werden,
+                    weil Kalles cholerische Chatkonversationen mit Jim die Ethikprozessoren unserer Server an die Grenzen trieben.
+                    Kalle lernte in der LeagueOfLegends-Community von den Besten der Besten und betreibt Schinder seither mit hitziger Leidenschaft.
+                    Leider liebt er die Jagd nach Schnitzel und hat ein Faibel für Easter-Eggs, was schon für so einige Konflikte gesorgt hat...
+                </div>
+
+
+                <div class="col-lg-6">
+
+
+                    <img class="col-lg-6 text-left" src="../static/Kalle2.jpg" style="width:300px;height:300px; margin-left: 100px"/>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+  
+{% include "snipets/footer.html" %}
+
+{% endblock %}

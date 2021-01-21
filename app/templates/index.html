@@ -1,0 +1,46 @@
+{% extends "bootstrap/base.html" %}
+
+<!-- Digg deeper into the sourcecode my friend, there are eastereggs to hunt -->
+{% block title %}Schinder{% endblock %}
+<!-- no eastereggs on this index bro -->
+
+{% block navbar %}
+    {% include "snipets/navbarIndex.html" %}
+{% endblock %}
+
+
+{% block head %}
+    <title>Schinder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    {% include "snipets/flash.html" %}
+    <style>
+        body{
+            background-image: url("../static/nolove.png");
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
+    </style>
+
+    <div class="container center text-white">
+        <h1>Wilkommen bei Schinder</h1>
+        <p>Der Mensch lebt nicht vom Brot allein.. Nein auch für den Hass muss Platz sein</p>
+        <p></p>
+        <p style="padding-top: 150px"><a class="btn btn-primary btn-lg registrieren" href="{{ url_for('register') }}" role="button">KONTO ERSTELLEN</a></p>
+    </div>
+
+{% include "snipets/footer.html" %}
+
+{% endblock %}

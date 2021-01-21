@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Matches {% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+ <!-- congratulations you found it! -->
+ <!-- how about the other easter eggs? -->
+
+{% block head %}
+    <title>Matches</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+   
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-white text-center">Alle registrierten User:</h2>
+
+    <div class="text-white matches">
+            <table>
+                {% for user in all_users %}
+                    <tr>
+                        <td><img src={{ user.prof_pic(64) }} ></td>
+                        <td><div style="font-size: 25px">{{ user.username }}</div></td>
+                        <td><div style="font-size: 25px">{{ user.email }}</div></td>
+                    </tr>
+                {% endfor %}
+            </table>
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}SQL Bitches{% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+
+
+{% block head %}
+    <title>Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+    {% include "snipets/flash.html" %}
+
+    <div class="text-white center">
+
+        <h1>Hi {{ current_user.username }}! </h1>
+
+        <p style="font-size: 18px">Suche die Mail eines Benutzer heraus, gebe einfach seinen Namen in die Suchleiste ein!</p>
+
+
+        <form method=post>
+            <!-- security feature hidden_tag it does not work without it -->
+            {{ form.hidden_tag() }}
+            <dl>
+
+                <p style="font-size: 17px">
+                    {{ form.input(size=32, class_="text-black") }}
+
+                    {{ form.submit(class_="text-black allesonstigenButtons") }}
+                </p>
+            </dl>
+        </form>
+
+        <div>
+            {% for text in texts %}
+                <span style="font-size: 22px">{{ text }}</span>
+
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

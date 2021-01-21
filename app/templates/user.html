@@ -1,0 +1,47 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Profil{% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+<!-- nice you are looking at HTML. one day you will be a good hacker -->
+<!--now did you find one of the eastereggs yet? no, not just comments. something better -->
+
+{% block head %}
+    <title>Profil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+    {% include "snipets/flash.html" %}
+
+    <!-- Make this center -->
+    <h2 class="text-white text-center">So sehen dich andere {{ user.username }}</h2>
+
+
+    <img style="display: block; margin: auto; padding-bottom: 15px; margin-top: 15px" src={{ user.prof_pic(256) }}>
+    <div class="text-white user">
+        <form action="" method="post">
+            {{ profil_form.hidden_tag() }}
+            <div style="font-size: 17px">{{ profil_form.discription(class_="text-black textAreaSize") }}</div>
+            <div>{{ profil_form.save(class_="allesonstigenButtons user") }}</div>
+            <br>
+            {% for topic in user.topics %}
+                <div style="display: flex; justify-content: center"> {{ topic.name }} </div>
+            {% endfor %}
+            <div>{{ profil_form.topic_select(class_="text-black") }}</div>
+            <br>
+            <div>{{ profil_form.add(class_="allesonstigenButtons user") }}</div>
+        </form>
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

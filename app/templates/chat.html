@@ -1,0 +1,54 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Chat{% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+
+
+{% block head %}
+    <title>Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        body{
+            max-height: 1080px;
+            overflow: auto;
+        }
+    </style>
+
+
+    <div class="text-white page-container" >
+        <h2>Dein Chat mit {{ user.username }} </h2>
+
+        {% for msg in msgs %}
+            {% if msg.user == current_user.id %}
+                <p style="display: block; text-align: center">{{ current_user.username }} um {{msg.timestamp}}</p>
+                <p style="display: block; text-align: right; font-size: 22px; padding-right: 40px; background-color: #128C7E; margin-left: 1000px; border-radius: 8px">{{ msg.msg_data }}</p>
+            {% else %}
+                <p style="display: block; text-align: center">{{ user.username }}  um {{msg.timestamp}}</p>
+                <p style="display: block; text-align: left; font-size: 22px; padding-left: 40px; background-color: black; margin-right: 1000px; border-radius: 8px">{{ msg.msg_data }}</p>
+            {% endif %}
+        {% endfor %}
+
+        <form action="{{ url_for('chat', matchid = chatid) }}" method="POST" style="display: block; text-align: right; padding-right: 40px; font-size: 22px;">
+            {{ msg_form.hidden_tag() }}
+            <span class="text-black" style="vertical-align: bottom">{{ msg_form.msg }} </span>
+            <span class="text-black">{{ msg_form.send(class_="btn btn-lg btn primary allesonstigenButtons") }}</span>
+        </form>
+
+    </div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

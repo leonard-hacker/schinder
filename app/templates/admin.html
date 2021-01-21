@@ -1,0 +1,69 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Secret Admin Interface{% endblock %}
+
+{% block navbar %}
+{% include "snipets/navbarHome.html" %}
+{% endblock %}
+
+<!-- congratulations. you can look at the HTML version. Are you Admin yet?-->
+<!-- Did you find all parts of the easteregg --> 
+
+{% block head %}
+<title>Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+<link rel="icon" href="../static/logowhite.png">
+<!-- Bootstrap -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+{% include "snipets/flash.html" %}
+
+<div class="text-white center">
+
+    <h1>Hallo Admin {{ current_user.username }}! <br> Willkommen im geheimen Admin Portal</h1>
+    <p style="font-size: 20px; padding-top: 15px">
+        Hier kannst du andere user stalken. Du kannst nach allem suchen was sie jemals gesagt haben.
+
+ <!-- whom can you never be matched with? -->
+ <!-- what did that person say to the admin?-->
+
+        {% from "_formhelpers.html" import render_field %}
+    <form method=post>
+        <!-- security feature hidden_tag it does not work without it -->
+        {{ form.hidden_tag() }}
+        <dl>
+		<!--Jim, i know you think you are the only one using this feature. -->
+		<!--check to make sure this is really save -->
+            <p style="font-size: 17px">
+                {{ form.search(size=32, class_="text-black") }}
+ 
+            {{ form.submit(class_="text-black allesonstigenButtons") }}
+            </p>
+        </dl>
+    </form>
+
+<div>
+    {% for msg in msgs %}
+    <hr>
+    <p style="font-size: 17px">{{ user.username }}  um {{msg.timestamp}} an {{ msg_recipients[loop.index - 1] }}</p>
+    <p style="font-size: 22px">{{ msg.msg_data }}</p>
+
+    {% endfor %}
+
+</div>
+
+
+
+
+
+</div>
+
+{% include "snipets/footer.html" %}
+
+{% endblock %}

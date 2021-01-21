@@ -1,0 +1,64 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block navbar %}
+    {% include "snipets/navbarHome.html" %}
+{% endblock %}
+
+<!-- yes this is "home", no this is not where the eastereggs are found-->
+<!-- keep trying. there 3 eastereggsw-->
+{% block head %}
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+    <link rel="icon" href="../static/logowhite.png">
+    <!-- Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    {% include "snipets/flash.html" %}
+
+    <h2 class="text-white text-center">Hallo {{ current_user.username }}. Ready to H8?</h2>
+
+    <div class="text-white center">
+        {% if is_match %}
+            <h1>It's a Match!</h1>
+        {% endif %}
+
+        {% if match %}
+            <div class="center" style="font-size: 30px">{{ match.username }}</div>
+            {% if match_form %}
+
+                <form class="yesno" action="{{ url_for('add_match', jopeid = match.id) }}" method="POST">
+                    {{ match_form.hidden_tag() }}
+                    <span >{{ match_form.no(class_="text-black btn btn-primary buttonNo") }}</span>
+                    <img class="picture1" style="display: block; margin: auto; padding-top: 15px" src={{ match.prof_pic(256) }} >
+                    <span>{{ match_form.yes(class_="text-black btn btn-primary buttonYes") }}</span>
+
+                </form>
+            {% endif %}
+            <span class="center"> {{ match.discription }} </span>
+
+        {% else %}
+            <p class="text-center text-white">Es gibt keine potentiellen Matches in deiner Gegend mehr. Hast du genug Hassthemen ausgewählt?</p>
+        {% endif %}
+
+        {% if msg_form %}
+            <form action="{{ url_for('add_match', jopeid = match.id) }}" method="POST">
+                {{ msg_form.hidden_tag() }}
+                <p>{{ msg_form.msg.label }}
+                <p>{{ msg_form.msg(class_="text-black") }}</p>
+                <p>{{ msg_form.send(class_="text-black allesonstigenButtons") }}</p>
+            </form>
+        {% endif %}
+    </div>
+    
+{% include "snipets/footer.html" %}
+
+{% endblock %}

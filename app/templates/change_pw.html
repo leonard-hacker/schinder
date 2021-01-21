@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Passwort ändern{% endblock %}
+
+{% block navbar %}
+{% include "snipets/navbarHome.html" %}
+{% endblock %}
+
+<!-- Neo! follow the white rabbit-->
+<!--there are eastereggs to be found -->
+{% block head %}
+<title>Passwort ändern</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="../static/logowhite.png">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+<!-- Bootstrap -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/forIndex.css') }}" />
+{% endblock %}
+
+{% block content %}
+   
+    <!-- Make this center -->
+    <h2 class="text-center text-white">Passwort ändern</h2>
+<div class="text-white center" style="font-size: 22px">
+    </form>
+    <form action="" method="post">
+        {{ pass_form.hidden_tag() }}
+        <p>
+        {{ pass_form.pw1.label }}<br>
+        {{ pass_form.pw1(class_="text-black") }}<br>
+        {% for error in pass_form.pw1.errors %}
+           <span style="color: yellow; font-size: 18px">{{ error }}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{ pass_form.pw2.label }}<br>
+        {{ pass_form.pw2(class_="text-black") }}<br>
+        {% for error in pass_form.pw2.errors %}
+           <span style="color: yellow; font-size: 18px">{{ error }}</span>
+        {% endfor %}
+        </p>
+
+        <p> {{ pass_form.change(class_="text-black btn-primary btn-lg allesonstigenButtons") }} </p>
+    </form>
+</div>
+
+{% include "snipets/footer.html" %}
+{% endblock %}

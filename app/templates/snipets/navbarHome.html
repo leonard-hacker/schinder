@@ -1,0 +1,53 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header text-white navbar-inverse.navbar-toggle">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="navbar-brand text-white" href="{{ url_for('home') }}">
+                <span><img src="../../static/logowhite.png" class="iconSmall"></span>
+                <span class="schinder text-white">schinder</span>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="text-white down">
+                    <span><a href="{{ url_for('matches') }}">Matches</a></span>
+                </li>
+                <li class="down text-white">
+                    <span><a href="{{ url_for('user', userid= current_user.id) }}">Profil</a></span>
+                </li>
+            </ul>
+            
+
+
+            <ul class="nav navbar-nav navbar-right">
+            {% if current_user.roll.upper() == 'A' %}
+
+                <li class="down text-white">
+                    <span><a href="{{ url_for('usermail') }}">Usermail</a></span>
+                </li>
+
+                <li class="down text-white">
+                    <span><a href="{{ url_for('admin') }}">Admin</a></span>
+                </li>
+
+            {% endif %}
+                <li class="down text-white">
+                    <span><a href="{{ url_for('about') }}">About</a></span>
+                </li>
+              <li class="down text-white">
+                  <span><a href="{{ url_for('logout') }}">Abmelden</a></span>
+              </li>
+
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
